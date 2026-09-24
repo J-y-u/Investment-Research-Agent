@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>投研助手</title>
+  <link rel="stylesheet" href="/styles.css?v=8">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">📈</span>
+      <div>
+        <h1>投研助手</h1>
+        <p>行情 · 事件研究 · 资产对比 · 研究报告</p>
+      </div>
+      <div class="top-actions">
+        <button id="historyBtn" class="ghost">🕘 历史会话</button>
+        <button id="newChat" class="ghost">＋ 新对话</button>
+      </div>
+    </div>
+  </header>
+
+  <aside id="historyPanel" class="history-panel hidden">
+    <div class="history-head"><span>历史会话</span><button id="closeHistory" class="x">×</button></div>
+    <ul id="sessionList"></ul>
+  </aside>
+
+  <section class="presets" id="presets">
+    <span class="pgroup">通用：</span>
+    <button data-fill="查一下 [代码] 的近期行情和风险收益指标">🔍 查行情</button>
+    <button data-fill="对 [代码] 做事件研究：近五年哪些事件影响了股价？">📰 事件研究</button>
+    <button data-fill="对比 [代码A] 和 [代码B] 的收益、波动、回撤、Sharpe 和相关性">⚖️ 资产对比</button>
+    <button data-fill="为 [代码] 生成可交互的行情×事件分析报告">📑 生成报告</button>
+    <span class="pgroup">深度样例：</span>
+    <button data-q="回顾英伟达 NVDA 近五年行情，梳理 AI 大事件并生成可交互报告">英伟达×AI事件</button>
+    <button data-q="黄金（GC=F）和比特币（BTC-USD）哪个更适合避险？对比并生成报告">黄金 vs BTC</button>
+  </section>
+
+  <div id="modelBar" class="model-bar"></div>
+
+  <main id="chat" class="chat"></main>
+
+  <footer class="composer">
+    <div class="input-wrap">
+      <textarea id="input" rows="1" placeholder="输入投研需求。代码格式：美股 AAPL ｜港股 0700.HK ｜沪市 600519.SS ｜深市 000001.SZ ｜商品 GC=F ｜加密 BTC-USD"></textarea>
+      <button id="send" title="发送">发送 ➤</button>
+    </div>
+    <div class="composer-note">仅限投资研究类问题 · 数字来自公开数据与代码计算 · 不构成投资建议</div>
+  </footer>
+
+  <script src="/app.js?v=8"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+# 依赖
+node_modules/
+# 密钥（绝不入库）
+.env
+.env.*
+!.env.example
+# 缓存与抓取的原始数据（保留 fixtures，忽略运行时缓存）
+.cache/
+# 产物：构建输出（可由 npm run pipeline 一键重新生成），不入库
+output/
+# 系统
+.DS_Store
+Thumbs.db
+# 日志
+*.log
+
+# 运行时
+*.pid
+
+# 会话记忆
+.sessions/
+
+# 原始需求与个人参考文档（项目外部输入）
+reference/
