@@ -80,7 +80,19 @@ CLI 体现了 pi 的 **tools / subagents / skills** 协作：
 
 ## 四、产物（`output/`）
 
-| 产物 | 说明 |
+`output/` 默认不进 git（可由 `npm run pipeline` 重新生成）。打包样例按子目录组织：
+
+| 目录 | 内容 |
+|---|---|
+| `sample0-web-ui/` | **Web 网站运行效果图**（初始页 / 对话结果 / 报告产物链接） |
+| `sample1-nvda-events/` | NVDA 行情×事件交互 HTML（深度事件库） |
+| `sample2-gold-vs-btc/` | 黄金 vs BTC 的 Excel/PPT/Word 三件套 |
+| `sample3-aapl-events/` | AAPL 行情×事件交互 HTML（HN 资讯路径） |
+| `sample4-aapl-vs-msft/` | AAPL vs MSFT 的 Excel/PPT/Word 三件套 |
+
+产物能力：
+
+| 文件 | 能力 |
 |---|---|
 | `<代码>-events.html` | 任意标的的行情×事件**交互报告**：K线 + 成交量 + 事件标记带、KPI、点击高亮影响窗口、事件卡（含来源链接）。Plotly 与数据内联，**单文件零外联、断网可开** |
 | `<A>_vs_<B>.xlsx` | 双标的回测底稿：说明/指标汇总/年度收益/净值/日收益/滚动相关性/回撤/来源 |

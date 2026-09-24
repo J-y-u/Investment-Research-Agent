@@ -122,8 +122,10 @@ export async function resolveModel({ force = false } = {}) {
   let lastReason = null;
   for (let i = 0; i < configured.length; i++) {
     const spec = configured[i];
-    const { ok, reason } = await probe(spec);
-    if (ok) {
+    // 首选 provider 探测失败时重试一次，避免偶发 timeout 误降级
+    let res = await probe(spec);
+    if (!res.ok && i === 0) res = await probe(spec);
+    if (res.ok) {
       const result = {
         ...build(spec),
         degraded: i > 0, // 不是首选 → 处于降级
@@ -137,7 +139,7 @@ export async function resolveModel({ force = false } = {}) {
       };
       return result;
     }
-    lastReason = reason;
+    lastReason = res.reason;
   }
 
   // 都探测失败：仍返回首选，让真实请求把错误暴露给用户
